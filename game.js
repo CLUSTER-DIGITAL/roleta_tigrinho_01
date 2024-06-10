@@ -1,5 +1,6 @@
 var spinCount = 0; 
 var modalActive = false;
+var isSpinning = false; 
 
 function setPrizes(index_prizes){
     /*
@@ -198,7 +199,8 @@ function create() {
         // if (!audioInitialized) {
         //     initAudio(); 
         // }
-        if (!modalActive && spinCount < 3) {
+        if (!modalActive && !isSpinning && spinCount < 3) {
+            isSpinning = true;
             spinCount++;
             console.log(spinCount)
             spinSound.play();
@@ -226,6 +228,7 @@ function create() {
                     spinSound.stop();
                     wheel.angle -= totalAngle;
                     // Para a rotação do botão "Gire" e redefine o ângulo
+                    isSpinning = false;
                     btnGireTween.stop();
                     btnGire.angle = 0;
                     checkResult.call(this);
