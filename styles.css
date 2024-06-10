@@ -1,0 +1,185 @@
+body {
+    text-align: center;
+    background-image: url('images/fundo02.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    margin: 0;
+    overflow: hidden;
+}
+#dwheel {
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+canvas {
+    background: none !important;
+    display: block;
+    margin: 0 auto;
+    touch-action: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    height: 100%;
+}
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-color: rgba(0,0,0,0.5); */
+    background: url('images/popupModal.png') no-repeat center center;
+    background-size: cover;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border: 1px white;
+}
+
+#modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* Melhora a distribuição do espaço */
+    padding: 10px; /* Reduzido para economizar espaço */
+    border-radius: 50px;
+    text-align: center;
+    color: #fff;
+    width: 25%;
+    max-width: 450px;
+    height: auto; /* Deixa a altura se ajustar automaticamente */
+    max-height: 80vh; /* Limita a altura máxima para evitar scroll externo */
+}
+
+
+
+#title-win, #title-msg, #msg, #modal-text {
+    margin-top: 10px; /* Uniformiza as margens superiores para todos os textos */
+    margin-bottom: 10px; /* Adiciona uma pequena margem inferior */
+}
+
+#modal-button {
+    background-color: #000000;
+    padding: 20px 35px;
+    color: #FEFF0E; 
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 22px;
+    margin-top: 10px;
+}
+.win-message {
+    /* color: green;
+    font-size: 35px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px; */
+    color: green;
+    /* background-color: #000000; */
+    font-size: 45px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    border-radius: 18px;
+}
+
+/* Confetti styles */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    z-index: 1000;
+    animation: fall linear forwards;
+}
+
+/* Animation that causes the confetti to fall */
+@keyframes fall {
+    0% { top: -10%; left: calc(10% + 90% * var(--rand)); opacity: 1; transform: rotateZ(0deg); }
+    100% { top: 110%; left: calc(5% + 90% * var(--rand)); opacity: 0; transform: rotateZ(360deg); }
+}
+
+/* Randomize the animation properties for each confetti */
+.confetti:nth-child(odd) {
+    background-color: #ff0;
+    animation-duration: var(--speed);
+    animation-delay: var(--delay);
+}
+.confetti:nth-child(even) {
+    background-color: #0f0;
+    animation-duration: var(--speed);
+    animation-delay: var(--delay);
+}
+
+
+@media (max-width: 600px) {
+    body {
+        background-size: 100% 100%; /* Ajusta a imagem para preencher exatamente o espaço disponível */
+    }
+    #overlay {
+        /* Opcional: Ajuste para garantir que o modal esteja centralizado verticalmente se necessário */
+        /* display: flex; */
+        width: 100%; /* Mantém o overlay cobrindo toda a tela */
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    #modal-content {
+        width: 90%; /* Utiliza mais espaço na tela móvel */
+        min-height: 50%; /* Aumenta a altura mínima para melhor acomodação */
+        padding: 10px; /* Menor padding para economizar espaço */
+    }
+
+    #modal-button {
+        padding: 10px 20px; /* Reduzir o padding para economizar espaço */
+        font-size: 18px; /* Ajustar o tamanho da fonte para melhor legibilidade */
+        margin-top: 10px;
+    }
+
+    .win-message {
+        font-size: 20px; /* Tornar a mensagem de vitória menor para caber melhor */
+    }
+
+    #modal-text {
+        font-size: 16px; /* Tamanho menor do texto para melhor ajuste */
+}
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    #modal-content {
+        width: 50%; 
+    }
+    #modal button {
+        font-size: 20px;
+        padding: 18px 36px;
+    }
+    .sprite {
+        width: 80%; 
+    }
+}
+
+@media (min-width: 1025px) {
+    #modal-content {
+        width: 30%; 
+        height: 30%; 
+    }
+    #modal button {
+        font-size: 22px; 
+        padding: 20px 40px;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
+    /* Carregar imagens de alta resolução para dispositivos Retina */
+    background-image: url('path/to/high-res-image.jpg');
+}
