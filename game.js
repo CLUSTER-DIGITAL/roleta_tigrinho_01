@@ -1,4 +1,5 @@
 var spinCount = 0; 
+var modalActive = false;
 
 function setPrizes(index_prizes){
     /*
@@ -153,7 +154,7 @@ function create() {
     // Ajustes para telas de celulares
     if (width < 600) {
         // Redefine as escalas e posições para dispositivos móveis
-        wheelScale = 0.52;
+        wheelScale = 0.48;
         btnGireScale = 0.22;
         fireCircleScale = wheelScale * 4.5;
         needleScale = 0.15;
@@ -197,7 +198,7 @@ function create() {
         // if (!audioInitialized) {
         //     initAudio(); 
         // }
-        if (spinCount < 3) {
+        if (!modalActive && spinCount < 3) {
             spinCount++;
             console.log(spinCount)
             spinSound.play();
@@ -235,6 +236,7 @@ function create() {
 }
 
 function checkResult() {
+    modalActive = true;
     let modalText = document.getElementById('modal-text');
     let modalButton = document.getElementById('modal-button');
     let modal = document.getElementById('overlay');
@@ -273,4 +275,5 @@ function checkResult() {
 
 function closeModal() {
     document.getElementById('overlay').style.display = 'none';
+    modalActive = false; 
 }
