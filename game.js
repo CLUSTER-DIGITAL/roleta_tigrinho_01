@@ -161,7 +161,7 @@ function create() {
         needleScale = 0.15;
         tigerScale = 0.35;
         wheelPositionX = width / 2 - 20;
-        wheelPositionY = height / 2 - 185;
+        wheelPositionY = height / 2 - 190;
         needlePositionX = width / 1 - 45;
         needlePositionY = height / 2 - 195;
         tigerPositionX = width / 2;
