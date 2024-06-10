@@ -168,18 +168,30 @@ canvas {
     }
 }
 
-@media (min-width: 1025px) {
+/* Estilos específicos para telas de notebook */
+@media (min-width: 1025px) and (max-width: 1440px) {
     #modal-content {
-        width: 30%; 
-        height: 30%; 
+        width: 40%; /* Aumentar um pouco para telas maiores, mas não tanto quanto em desktops grandes */
+        height: auto; /* Altura automática para melhor acomodação do conteúdo */
+        padding: 20px;
     }
-    #modal button {
-        font-size: 22px; 
-        padding: 20px 40px;
+
+    #modal-button {
+        font-size: 20px; /* Ajustar o tamanho da fonte para ser ligeiramente maior */
+        padding: 15px 30px;
+    }
+
+    .win-message {
+        font-size: 30px; /* Tamanho da fonte ajustado para visibilidade em telas maiores */
+    }
+
+    #dwheel {
+        height: 80vh; /* Ajustar a altura da roleta para uma proporção da tela mais apropriada */
+    }
+
+    /* Ajustar o tamanho do sprite do tigre para telas maiores */
+    .tiger {
+        transform: scale(0.7);
     }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi) {
-    /* Carregar imagens de alta resolução para dispositivos Retina */
-    background-image: url('path/to/high-res-image.jpg');
-}

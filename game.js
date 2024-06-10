@@ -75,6 +75,28 @@ var game = new Phaser.Game(config);
 
 var winSound;
 
+
+// Variáveis para controle de áudio
+var audioInitialized = false;
+var spinSound, winSound;
+
+function initAudio() {
+    // Apenas inicializa uma vez
+    if (!audioInitialized) {
+        // Cria instâncias de áudio
+        spinSound = game.sound.add("sounds/spinSound.mp3");
+        winSound = game.sound.add("sounds/winSound.mp3");
+        
+        // Toca e pausa os sons para desbloquear no iOS
+        spinSound.play();
+        spinSound.pause();
+        winSound.play();
+        winSound.pause();
+
+        audioInitialized = true;
+    }
+}
+
 function preload() {
     this.load.crossOrigin = 'anonymous';
     this.load.image("fireCircle", "images/circuloFogo.png");
@@ -89,6 +111,12 @@ function preload() {
 }
 
 function create() {
+    // configurando áudio no primeiro toque no iphone
+    var game = this;
+    // Chama initAudio na primeira interação com o jogo
+    this.input.once('pointerdown', function () {
+        initAudio(game);
+    });
     // Uso para desktop
     var width = this.cameras.main.width;
     var height = this.cameras.main.height;
@@ -99,13 +127,27 @@ function create() {
     var fireCircleScale = wheelScale * 4.5;
     var needleScale = 0.21;
     var tigerScale = 0.5;
-    var wheelPositionX = 500;               // Posição X da roleta para desktop
-    var wheelPositionY = height / 2;        // Posição Y centralizada
-    var needlePositionX = 800;              // Posição X da agulha para desktop
-    var needlePositionY = height / 2;       // Posição Y centralizada da agulha
-    var tigerPositionX = 1250;              // Posição X do tigre para desktop
-    var tigerPositionY = height / 2 + 200;  // Posição Y do tigre abaixo da roleta
+    var wheelPositionX = 450;               // Posição X da roleta para desktop
+    var wheelPositionY = height / 2 - 50;   // Posição Y centralizada
+    var needlePositionX = 750;              // Posição X da agulha para desktop
+    var needlePositionY = height / 2 - 55;   // Posição Y centralizada da agulha
+    var tigerPositionX = 1200;              // Posição X do tigre para desktop
+    var tigerPositionY = height / 2 + 165;  // Posição Y do tigre abaixo da roleta
 
+
+    // Ajustes para telas de notebook
+    if (width >= 1024 && width <= 1440) {
+        wheelScale = 0.6;
+        btnGireScale = 0.28;
+        needleScale = 0.18;
+        tigerScale = 0.45;
+        positions.wheel.x = width / 2;
+        positions.needle.x = positions.wheel.x + 300;
+        positions.tiger.x = positions.wheel.x + 450;
+        
+    }
+
+    // Ajustes para telas de celulares
     if (width < 600) {
         // Redefine as escalas e posições para dispositivos móveis
         wheelScale = 0.48;
@@ -149,6 +191,9 @@ function create() {
     winSound = this.sound.add("winSound");
 
     btnGire.on('pointerdown', function () {
+        // if (!audioInitialized) {
+        //     initAudio(); 
+        // }
         if (spinCount < 3) {
             spinCount++;
             console.log(spinCount)
