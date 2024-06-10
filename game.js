@@ -242,7 +242,7 @@ function checkResult() {
     let title = document.getElementById('title-msg')
     let titleWin = document.getElementById('title-win')
     let msg = document.getElementById('msg')
-
+    
     let prizeText; 
 
     if (spinCount < 3) {
