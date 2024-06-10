@@ -76,27 +76,6 @@ var game = new Phaser.Game(config);
 var winSound;
 
 
-// Variáveis para controle de áudio
-var audioInitialized = false;
-var spinSound, winSound;
-
-function initAudio() {
-    // Apenas inicializa uma vez
-    if (!audioInitialized) {
-        // Cria instâncias de áudio
-        spinSound = game.sound.add("sounds/spinSound.mp3");
-        winSound = game.sound.add("sounds/winSound.mp3");
-        
-        // Toca e pausa os sons para desbloquear no iOS
-        spinSound.play();
-        spinSound.pause();
-        winSound.play();
-        winSound.pause();
-
-        audioInitialized = true;
-    }
-}
-
 function preload() {
     this.load.crossOrigin = 'anonymous';
     this.load.image("fireCircle", "images/circuloFogo.png");
@@ -110,13 +89,37 @@ function preload() {
     this.load.audio("winSound", "sounds/winSound.mp3"); 
 }
 
+// Variáveis para controle de áudio
+var audioInitialized = false;
+var spinSound, winSound;
+
+function initAudio() {
+    // Apenas inicializa uma vez
+    if (!audioInitialized) {
+        // Cria instâncias de áudio
+        game.spinSound = game.sound.add('spinSound');
+        game.winSound = game.sound.add('winSound');
+        
+        // Toca e pausa os sons para desbloquear no iOS
+        spinSound.play();
+        spinSound.pause();
+        winSound.play();
+        winSound.pause();
+
+        audioInitialized = true;
+    }
+}
+
 function create() {
     // configurando áudio no primeiro toque no iphone
     var game = this;
-    // Chama initAudio na primeira interação com o jogo
+    this.audioInitialized = false; // Estado inicial do áudio
+
+    // Carrega áudio na primeira interação com o usuário
     this.input.once('pointerdown', function () {
         initAudio(game);
     });
+
     // Uso para desktop
     var width = this.cameras.main.width;
     var height = this.cameras.main.height;
@@ -246,7 +249,7 @@ function checkResult() {
         prizeText = "Mas não desanime, você pode tentar novamente!"; 
         title.style.display = "block";
         title.textContent = "INFELIZMENTE, VOCÊ NÃO TEVE SORTE NESSA RODADA."
-        modalButton.textContent = "GIRE NOVAMENTE!";
+        modalButton.textContent = "Gire Novamente!";
         winningMessage.style.display = "none";
     } else {
         createConfetti();
