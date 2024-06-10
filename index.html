@@ -14,50 +14,54 @@
 </head>
 <body>
     <div id="dwheel"></div>
-    <div id="overlay">
-        <div id="modal-content">
-            <div id="winning-message" class="win-message" style="display: none;">
-                <span>Você ganhou!</span> 
-                <span>🎉</span>
+        <div id="overlay">
+            <div id="modal-content">
+                <div id="winning-message" class="win-message" style="display: none;">
+                    <span>Você ganhou!</span> 
+                    <span>🎉</span>
+                </div>
+                <p 
+                    style="
+                        display: none;
+                        font-size: 57px;
+                        color: #3C2389;
+                        font-weight: 800; 
+                        text-shadow: 2px 2px 4px #000000;
+                    "
+                    id="title-win">...
+                </p>
+                <p 
+                    style="
+                        display: none;
+                        font-size: 33px;
+                        color: #FFFFFF;
+                        text-shadow: 2px 2px 4px #000000;
+                    "
+                    id="title-msg">...
+                </p>
+                <p 
+                    style="
+                        margin-top: 5%;
+                        display: none;
+                        font-size: 21px;
+                        color: #FFFFFF;
+                        text-shadow: 2px 2px 4px #000000;
+                    "
+                    id="msg">...
+                </p>
+                <p 
+                    style="
+                        font-size: 27px;
+                        color: #FFFFFF;
+                        text-shadow: 2px 2px 4px #000000;
+                    "
+                    id="modal-text">...
+                </p>
+                <button 
+                    id="modal-button"
+                    onclick="closeModal()">...
+                </button>
             </div>
-            <p 
-                style="
-                    display: none;
-                    font-size: 57px;
-                    color: #3C2389;
-                    font-weight: 800; 
-                    text-shadow: 2px 2px 4px #000000;
-                "
-                id="title-win">...
-            </p>
-            <p 
-                style="
-                    display: none;
-                    font-size: 33px;
-                    color: #000;
-                "
-                id="title-msg">...
-            </p>
-            <p 
-                style="
-                    margin-top: 15%;
-                    display: none;
-                    font-size: 30px;
-                    color: #000;
-                "
-                id="msg">...
-            </p>
-            <p 
-                style="
-                    font-size: 27px;
-                    color: #000;
-                "
-                id="modal-text">...
-            </p>
-            <button 
-                id="modal-button"
-                onclick="closeModal()">...
-            </button>
         </div>
     </div>
 </body>

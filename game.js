@@ -257,10 +257,10 @@ function checkResult() {
         createConfetti();
         prizeText = getPrizeText(index_prize); 
         title.style.display = "none";
-        msg.style.display = "block"
-        msg.textContent = "VOCÊ ACABOU DE GANHAR SEU BÔNUS: "
+        msg.style.display = "block";
+        msg.textContent = "VOCÊ ACABOU DE GANHAR SEU BÔNUS: ";
         titleWin.style.display = "block";
-        titleWin.textContent = "PARABÉNS"
+        titleWin.textContent = "PARABÉNS";
         modalButton.textContent = "Resgatar Prêmio";
         // winningMessage.style.display = "flex";
         modalButton.onclick = function() {

@@ -1,3 +1,10 @@
+input[type="text"], 
+input[type="button"], 
+input[type="submit"] {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
 body {
     text-align: center;
     background-image: url('images/fundo02.jpg');
@@ -26,6 +33,8 @@ canvas {
     width: 100%;
     height: 100%;
 }
+
+
 #overlay {
     position: fixed;
     width: 100%;
@@ -42,6 +51,8 @@ canvas {
     justify-content: center;
     border: 1px white;
     border-radius: 30px;
+    box-sizing: border-box; /* Adicionar essa linha */
+    overflow: hidden; /* Adicionar essa linha */
 }
 
 #modal-content {
@@ -74,7 +85,7 @@ canvas {
     border-radius: 30px;
     cursor: pointer;
     font-size: 22px;
-    margin-top: 10px;
+    margin-top: 6%;
 }
 .win-message {
     /* color: green;
@@ -130,33 +141,37 @@ canvas {
     }
     
     #overlay {
-        /* Opcional: Ajuste para garantir que o modal esteja centralizado verticalmente se necessário */
-        /* display: flex; */
-        width: 90%; /* Mantém o overlay cobrindo toda a tela */
-        height: 80%;
-        margin-left: 25px;  /*Margin da esquerda do modal mobile*/
+        width: 100%; /* Ocupa a largura total da tela */
+        height: 80%; /* Reduz a altura para evitar sobrecarregar a tela */
+        background: url('images/popupModal.png') no-repeat center center;
+        background-size: cover; /* Certifica que a imagem de fundo cobre todo o espaço */
+        margin: auto; /* Centraliza o overlay na tela */
+        display: none; /* Mantém o layout flexível para centralizar o conteúdo */
         align-items: center;
         justify-content: center;
-        border-radius: 30px;
-    }
-    #modal-content {
-        width: 90%;      /* Utiliza mais espaço na tela móvel */
-        min-height: 50%; /* Aumenta a altura mínima para melhor acomodação */
-        padding: 5px;    /* Menor padding para economizar espaço */
+        border-radius: 20px; /* Aumenta o border-radius para um visual mais suave */
+        overflow: hidden; /* Adicionado para garantir que o border-radius seja respeitado */
     }
 
-    #modal-button {
+    #modal-content {
+        width: 100%;     /* Ajusta para usar a largura total do overlay */
+        min-height: 50%; /* Aumenta a altura mínima para melhor acomodação */
+        padding: 5px;   /* Menor padding para economizar espaço */
+        box-sizing: border-box; /* Garante que o padding não afete as dimensões externas */
+    }
+      #modal-button {
         padding: 10px 20px; /* Reduzir o padding para economizar espaço */
-        font-size: 18px;   /* Ajustar o tamanho da fonte para melhor legibilidade */
+        font-size: 16px;   /* Ajustar o tamanho da fonte para melhor legibilidade */
         margin-top: 10px;
     }
 
     .win-message {
-        font-size: 20px; /* Tornar a mensagem de vitória menor para caber melhor */
+        font-size: 10px; /* Tornar a mensagem de vitória menor para caber melhor */
     }
 
     #modal-text {
-        font-size: 16px; /* Tamanho menor do texto para melhor ajuste */
+        margin-top: 1%;
+        font-size: 10px; /* Tamanho menor do texto para melhor ajuste */
     }
 }
 
