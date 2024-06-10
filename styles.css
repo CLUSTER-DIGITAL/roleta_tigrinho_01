@@ -6,6 +6,8 @@ input[type="submit"] {
 }
 
 body {
+    font-weight: 700; /* Pode ser 800 ou 900, dependendo da espessura desejada */
+    font-family: 'Poppins', sans-serif;
     text-align: center;
     background-image: url('images/fundo02.jpg');
     background-size: cover; 

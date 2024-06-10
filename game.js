@@ -159,13 +159,13 @@ function create() {
         btnGireScale = 0.22;
         fireCircleScale = wheelScale * 4.5;
         needleScale = 0.15;
-        tigerScale = 0.37;
+        tigerScale = 0.35;
         wheelPositionX = width / 2 - 20;
-        wheelPositionY = height / 2 - 205;
+        wheelPositionY = height / 2 - 185;
         needlePositionX = width / 1 - 45;
-        needlePositionY = height / 2 - 215;
+        needlePositionY = height / 2 - 195;
         tigerPositionX = width / 2;
-        tigerPositionY = height / 2 + 190;
+        tigerPositionY = height / 2 + 168;
     }
 
     // Adiciona o círculo de fogo
