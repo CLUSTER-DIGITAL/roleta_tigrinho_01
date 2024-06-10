@@ -52,20 +52,29 @@
             justify-content: center;
             border: 1px white;
         }
+
         #modal-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            /* background: #000; */
-            padding: 40px;
+            justify-content: space-around; /* Melhora a distribuição do espaço */
+            padding: 10px; /* Reduzido para economizar espaço */
             border-radius: 50px;
             text-align: center;
             color: #fff;
             width: 25%;
             max-width: 450px;
-            height: 35%;
+            height: auto; /* Deixa a altura se ajustar automaticamente */
+            max-height: 80vh; /* Limita a altura máxima para evitar scroll externo */
         }
+
+
+
+        #title-win, #title-msg, #msg, #modal-text {
+            margin-top: 10px; /* Uniformiza as margens superiores para todos os textos */
+            margin-bottom: 10px; /* Adiciona uma pequena margem inferior */
+        }
+
         #modal-button {
             background-color: #000000;
             padding: 20px 35px;
@@ -74,7 +83,7 @@
             border-radius: 30px;
             cursor: pointer;
             font-size: 22px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .win-message {
             /* color: green;
@@ -136,16 +145,15 @@
                 justify-content: center;
             }
             #modal-content {
-                width: 90%; /* Aumentar a largura para usar mais espaço */
-                height: auto; /* Altura automática para acomodar o conteúdo */
-                padding: 10px; /* Reduzir o padding */
-                border-radius: 20px; /* Ajustar bordas para um visual mais suave */
-                box-sizing: border-box; /* Garantir que padding não adicione à largura */
+                width: 90%; /* Utiliza mais espaço na tela móvel */
+                min-height: 50%; /* Aumenta a altura mínima para melhor acomodação */
+                padding: 10px; /* Menor padding para economizar espaço */
             }
 
             #modal-button {
                 padding: 10px 20px; /* Reduzir o padding para economizar espaço */
                 font-size: 18px; /* Ajustar o tamanho da fonte para melhor legibilidade */
+                margin-top: 10px;
             }
 
             .win-message {
@@ -199,7 +207,7 @@
             <p 
                 style="
                     display: none;
-                    font-size: 60px;
+                    font-size: 57px;
                     color: #3C2389;
                     font-weight: 800; 
                     text-shadow: 2px 2px 4px #000000;
@@ -216,6 +224,7 @@
             </p>
             <p 
                 style="
+                    margin-top: 15%;
                     display: none;
                     font-size: 30px;
                     color: #000;
