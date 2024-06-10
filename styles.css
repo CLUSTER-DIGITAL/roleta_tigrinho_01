@@ -41,6 +41,7 @@ canvas {
     align-items: center;
     justify-content: center;
     border: 1px white;
+    border-radius: 30px;
 }
 
 #modal-content {
@@ -125,24 +126,28 @@ canvas {
 @media (max-width: 600px) {
     body {
         background-size: 100% 100%; /* Ajusta a imagem para preencher exatamente o espaço disponível */
+        background-image: url('images/fundoMobile.jpg');
     }
+    
     #overlay {
         /* Opcional: Ajuste para garantir que o modal esteja centralizado verticalmente se necessário */
         /* display: flex; */
-        width: 100%; /* Mantém o overlay cobrindo toda a tela */
-        height: 100%;
+        width: 90%; /* Mantém o overlay cobrindo toda a tela */
+        height: 80%;
+        margin-left: 25px;  /*Margin da esquerda do modal mobile*/
         align-items: center;
         justify-content: center;
+        border-radius: 30px;
     }
     #modal-content {
-        width: 90%; /* Utiliza mais espaço na tela móvel */
+        width: 90%;      /* Utiliza mais espaço na tela móvel */
         min-height: 50%; /* Aumenta a altura mínima para melhor acomodação */
-        padding: 10px; /* Menor padding para economizar espaço */
+        padding: 5px;    /* Menor padding para economizar espaço */
     }
 
     #modal-button {
         padding: 10px 20px; /* Reduzir o padding para economizar espaço */
-        font-size: 18px; /* Ajustar o tamanho da fonte para melhor legibilidade */
+        font-size: 18px;   /* Ajustar o tamanho da fonte para melhor legibilidade */
         margin-top: 10px;
     }
 
@@ -152,7 +157,7 @@ canvas {
 
     #modal-text {
         font-size: 16px; /* Tamanho menor do texto para melhor ajuste */
-}
+    }
 }
 
 @media (min-width: 601px) and (max-width: 1024px) {

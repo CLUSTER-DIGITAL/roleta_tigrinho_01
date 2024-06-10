@@ -153,17 +153,17 @@ function create() {
     // Ajustes para telas de celulares
     if (width < 600) {
         // Redefine as escalas e posições para dispositivos móveis
-        wheelScale = 0.48;
+        wheelScale = 0.52;
         btnGireScale = 0.22;
         fireCircleScale = wheelScale * 4.5;
         needleScale = 0.15;
         tigerScale = 0.37;
         wheelPositionX = width / 2 - 20;
         wheelPositionY = height / 2 - 205;
-        needlePositionX = width / 1 - 70;
+        needlePositionX = width / 1 - 45;
         needlePositionY = height / 2 - 215;
         tigerPositionX = width / 2;
-        tigerPositionY = height / 2 + 160;
+        tigerPositionY = height / 2 + 190;
     }
 
     // Adiciona o círculo de fogo
@@ -242,13 +242,13 @@ function checkResult() {
     let title = document.getElementById('title-msg')
     let titleWin = document.getElementById('title-win')
     let msg = document.getElementById('msg')
-    
+
     let prizeText; 
 
     if (spinCount < 3) {
         prizeText = "Mas não desanime, você pode tentar novamente!"; 
         title.style.display = "block";
-        title.textContent = "INFELIZMENTE, VOCÊ NÃO TEVE SORTE NESSA RODADA."
+        title.textContent = "Infelizmente, você não teve sorte nessa rodada."
         modalButton.textContent = "Gire Novamente!";
         winningMessage.style.display = "none";
     } else {
