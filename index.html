@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Roleta de prêmios</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
     <script src="jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
     <style>
@@ -70,7 +71,7 @@
             padding: 20px 35px;
             color: #FEFF0E; 
             border: none;
-            border-radius: 18px;
+            border-radius: 30px;
             cursor: pointer;
             font-size: 22px;
             margin-top: 20px;
@@ -195,6 +196,32 @@
                 <span>Você ganhou!</span> 
                 <span>🎉</span>
             </div>
+            <p 
+                style="
+                    display: none;
+                    font-size: 60px;
+                    color: #3C2389;
+                    font-weight: 800; 
+                    text-shadow: 2px 2px 4px #000000;
+                "
+                id="title-win">...
+            </p>
+            <p 
+                style="
+                    display: none;
+                    font-size: 37px;
+                    color: #000;
+                "
+                id="title-msg">...
+            </p>
+            <p 
+                style="
+                    display: none;
+                    font-size: 30px;
+                    color: #000;
+                "
+                id="msg">...
+            </p>
             <p 
                 style="
                     font-size: 27px;
@@ -440,18 +467,28 @@
             let modalButton = document.getElementById('modal-button');
             let modal = document.getElementById('overlay');
             let winningMessage = document.getElementById('winning-message');
+            let title = document.getElementById('title-msg')
+            let titleWin = document.getElementById('title-win')
+            let msg = document.getElementById('msg')
 
             let prizeText; 
 
             if (spinCount < 3) {
-                prizeText = getPrizeText(4); 
-                modalButton.textContent = "Tentar Novamente";
+                prizeText = "Mas não desanime, você pode tentar novamente!"; 
+                title.style.display = "block";
+                title.textContent = "INFELIZMENTE, VOCÊ NÃO TEVE SORTE NESSA RODADA."
+                modalButton.textContent = "GIRE NOVAMENTE!";
                 winningMessage.style.display = "none";
             } else {
                 createConfetti();
                 prizeText = getPrizeText(index_prize); 
+                title.style.display = "none";
+                msg.style.display = "block"
+                msg.textContent = "VOCÊ ACABOU DE GANHAR SEU BÔNUS: "
+                titleWin.style.display = "block";
+                titleWin.textContent = "PARABÉNS"
                 modalButton.textContent = "Resgatar Prêmio";
-                winningMessage.style.display = "flex";
+                // winningMessage.style.display = "flex";
                 modalButton.onclick = function() {
                     window.location.href = 'https://www.bet69pro.bet/register?id=657b639287f7080028f3d57c';
                 };
