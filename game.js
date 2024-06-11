@@ -69,13 +69,12 @@ var config = {
     transparent: true,
     scene: {
         preload: preload,
-        create: create
+        create: create,
+        audioInitialized: false
     }
 };
 
 var game = new Phaser.Game(config);
-
-var winSound;
 
 
 function preload() {
@@ -92,34 +91,39 @@ function preload() {
 }
 
 // Variáveis para controle de áudio
-var audioInitialized = false;
+// var audioInitialized = false;
 var spinSound, winSound;
 
-function initAudio() {
-    // Apenas inicializa uma vez
-    if (!audioInitialized) {
-        // Cria instâncias de áudio
+function initAudio(game) {
+    // Cria instâncias de áudio apenas uma vez
+    if (!game.audioInitialized) {
+        // Carrega e desbloqueia os sons no iOS
         game.spinSound = game.sound.add('spinSound');
         game.winSound = game.sound.add('winSound');
-        
-        // Toca e pausa os sons para desbloquear no iOS
-        spinSound.play();
-        spinSound.pause();
-        winSound.play();
-        winSound.pause();
 
-        audioInitialized = true;
+        game.spinSound.play();
+        game.spinSound.pause();
+        game.winSound.play();
+        game.winSound.pause();
     }
 }
 
 function create() {
-    // configurando áudio no primeiro toque no iphone
+    // Configurando áudio no primeiro toque no iPhone
     var game = this;
-    this.audioInitialized = false; // Estado inicial do áudio
-
-    // Carrega áudio na primeira interação com o usuário
+    // Configurado para carregar áudios na  primeira interação do usuário
     this.input.once('pointerdown', function () {
-        initAudio(game);
+        console.log("Pointer down detected.");
+        if (!game.audioInitialized) {
+            game.spinSound = game.sound.add('spinSound');
+            game.winSound = game.sound.add('winSound');
+            game.spinSound.play();
+            game.spinSound.pause();
+            game.winSound.play();
+            game.winSound.pause();
+            game.audioInitialized = true;
+            console.log("Audio initialized.");
+        }
     });
 
     // Uso para desktop
@@ -192,13 +196,10 @@ function create() {
     var tiger = this.add.image(tigerPositionX, tigerPositionY, "tiger");
     tiger.setScale(tigerScale);
 
-    var spinSound = this.sound.add("spinSound");
+    spinSound = this.sound.add("spinSound");
     winSound = this.sound.add("winSound");
 
     btnGire.on('pointerdown', function () {
-        // if (!audioInitialized) {
-        //     initAudio(); 
-        // }
         if (!modalActive && !isSpinning && spinCount < 3) {
             isSpinning = true;
             spinCount++;

@@ -53,30 +53,30 @@ canvas {
     justify-content: center;
     border: 1px white;
     border-radius: 30px;
-    box-sizing: border-box; /* Adicionar essa linha */
-    overflow: hidden; /* Adicionar essa linha */
+    box-sizing: border-box;
+    overflow: hidden; 
 }
 
 #modal-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around; /* Melhora a distribuição do espaço */
-    padding: 10px; /* Reduzido para economizar espaço */
+    justify-content: space-around;  /* Melhora a distribuição do espaço */
+    padding: 10px;                  /* Reduzido para economizar espaço */
     border-radius: 50px;
     text-align: center;
     color: #fff;
     width: 25%;
     max-width: 450px;
-    height: auto; /* Deixa a altura se ajustar automaticamente */
-    max-height: 80vh; /* Limita a altura máxima para evitar scroll externo */
+    height: auto;       /* Deixa a altura se ajustar automaticamente */
+    max-height: 80vh;   /* Limita a altura máxima para evitar scroll externo */
 }
 
 
 
 #title-win, #title-msg, #msg, #modal-text {
-    margin-top: 10px; /* Uniformiza as margens superiores para todos os textos */
-    margin-bottom: 10px; /* Adiciona uma pequena margem inferior */
+    margin-top: 10px;       /* Uniformiza as margens superiores para todos os textos */
+    margin-bottom: 10px;    /* Adiciona uma pequena margem inferior */
 }
 
 #modal-button {
@@ -96,8 +96,8 @@ canvas {
     display: flex;
     align-items: center;
     gap: 10px; */
-    color: green;
     /* background-color: #000000; */
+    color: green;
     font-size: 45px;
     font-weight: bold;
     display: flex;
