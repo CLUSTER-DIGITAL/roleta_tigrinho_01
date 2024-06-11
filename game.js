@@ -159,13 +159,13 @@ function create() {
         btnGireScale = 0.22;
         fireCircleScale = wheelScale * 4.5;
         needleScale = 0.15;
-        tigerScale = 0.35;
+        tigerScale = 0.33;
         wheelPositionX = width / 2 - 20;
-        wheelPositionY = height / 2 - 190;
+        wheelPositionY = height / 2 - 165;
         needlePositionX = width / 1 - 45;
-        needlePositionY = height / 2 - 195;
+        needlePositionY = height / 2 - 175;
         tigerPositionX = width / 2;
-        tigerPositionY = height / 2 + 168;
+        tigerPositionY = height / 2 + 175;
     }
 
     // Adiciona o círculo de fogo
@@ -261,7 +261,7 @@ function checkResult() {
         prizeText = getPrizeText(index_prize); 
         title.style.display = "none";
         msg.style.display = "block";
-        msg.textContent = "VOCÊ ACABOU DE GANHAR SEU BÔNUS: ";
+        msg.textContent = "Você acabou de ganhar seu bônus: ";
         titleWin.style.display = "block";
         titleWin.textContent = "PARABÉNS";
         modalButton.textContent = "Resgatar Prêmio";
